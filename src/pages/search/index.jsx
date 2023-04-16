@@ -51,7 +51,7 @@ const Search = ({ movielist }) => {
                   />
                 </div>
                 <div className="text-white">
-                  <h5 className="mb-4 text-5xl">Search &ldquo;{router?.query?.query}&ldquo;</h5>
+                  <h5 className="mb-4 text-5xl">Search &#34;{router?.query?.query}&#34;</h5>
                   <p className="text-xl">
                     There are no movies that matched your query.
                   </p>
