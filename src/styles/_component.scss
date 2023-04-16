@@ -1,0 +1,37 @@
+.btn {
+  @apply font-bold py-2 px-4 inline-block cursor-pointer transition-transform rounded;
+  &.btn-lg {
+    @apply py-3 px-6 text-lg;
+  }
+  &:active {
+    @apply scale-90 transition-transform;
+  }
+  &.btn-primary {
+    @apply bg-blue-500 text-white;
+
+    &:hover {
+      @apply bg-blue-700;
+    }
+  }
+  &.btn-warning {
+    @apply bg-yellow-500 text-black;
+    &:hover {
+      @apply bg-yellow-500;
+    }
+  }
+}
+
+.form-control {
+  @apply py-2 px-4 w-full rounded;
+  &.form-control-lg {
+    @apply py-3 px-4 text-lg;
+  }
+}
+
+.form-error{
+  @apply text-red-600 mt-3;
+}
+
+.container {
+  @apply px-4;
+}

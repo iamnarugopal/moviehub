@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'component';
+
+*{
+  &:focus-visible{
+    outline: none;
+  }
+}
+html,
+body,
+#__next {
+  min-height: 100vh;
+}
+
+body {
+  background-color: #000;
+}
+
+button:focus-within{
+    outline: none;
+}
