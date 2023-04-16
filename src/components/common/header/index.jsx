@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { FiSearch } from "react-icons/fi";
 
 const Header = () => {
   const router = useRouter();
@@ -14,7 +15,7 @@ const Header = () => {
   return (
     <header
       className={`${
-        isHomepage ? "absolute py-8" : "bg-black py-4"
+        isHomepage ? "absolute py-4 md:py-8" : "bg-black py-4"
       } z-10 w-full`}
     >
       <div className="container mx-auto">
@@ -31,8 +32,16 @@ const Header = () => {
               </Link>
             </div>
           </div>
-          <div className="shrink-0">
-            <div className="">
+          <div className="flex gap-5 xl:gap-10 shrink-0 items-center">
+            {router?.pathname === "/movie/[id]" && (
+              <div className="shrink-0">
+                <Link href="/movie" className="text-white text-3xl">
+                  <FiSearch />
+                </Link>
+              </div>
+            )}
+
+            <div className="shrink-0">
               <a href="https://www.themoviedb.org/" target="_blank">
                 <Image
                   src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"

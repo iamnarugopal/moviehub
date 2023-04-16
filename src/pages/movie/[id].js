@@ -28,9 +28,9 @@ const MovieDetail = ({ moviedata, relatedmovie }) => {
   //   console.log(moviedata);
   // }, [moviedata]);
 
-  useEffect(() => {
-    console.log(relatedmovie?.results[0]);
-  }, [relatedmovie]);
+  // useEffect(() => {
+  //   console.log(relatedmovie?.results[0]);
+  // }, [relatedmovie]);
 
 
   return (

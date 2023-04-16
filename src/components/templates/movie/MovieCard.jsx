@@ -5,20 +5,23 @@ import Link from "next/link";
 import React from "react";
 
 const MovieCard = ({ data }) => {
- 
   return (
-    <div className="">
-      <Link href={getmovieurl(data)}>
-        <div className="mb-4">
+    <div className="h-full rounded-xl overflow-hidden hover:scale-105 transition-transform">
+      <Link href={getmovieurl(data)} className="h-full block bg-gray-950  hover:bg-gray-800 transition-colors">
+        <div className="">
           <Image
-            src={`${process.env.API_IMAGE_URL}w342/${data?.poster_path}`}
+            src={`${
+              !!data?.poster_path
+                ? `${process.env.API_IMAGE_URL}w342/${data?.poster_path}`
+                : "https://dummyimage.com/270x405/fff/aaa"
+            }`}
             width={352}
             height={528}
-            alt="s"
+            alt={data?.original_title}
             className="w-full rounded-lg shadow-2xl"
           />
         </div>
-        <div className="text-white">
+        <div className="p-3 lg:p-5 text-white">
           <h5 className="text-xl font-bold mb-2">{data?.original_title}</h5>
           <p className="mb-4">
             {dayjs(data?.release_date, "YYYY-MM-DD").format("YYYY")}
