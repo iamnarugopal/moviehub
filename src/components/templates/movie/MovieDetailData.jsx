@@ -9,7 +9,7 @@ const MovieDetailData = ({ data, className }) => {
         <div className="flex mb-5 lg:mb-8">
           <div className="grow">
             <h1 className="text-white text-3xl font-bold  mb-5 md:text-5xl">
-              {data?.original_title}
+              {!!data?.title ? data?.title : data?.name}
             </h1>
             <div className="text-slate-400 font-semibold ">
               <span className="me-3">

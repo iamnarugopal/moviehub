@@ -32,27 +32,28 @@ const MovieDetail = ({ moviedata, relatedmovie }) => {
   //   console.log(relatedmovie?.results[0]);
   // }, [relatedmovie]);
 
-
   return (
     <>
       <section className="py-5 lg:py-10">
         <div className="container mx-auto">
-          <div className="flex justify-between">
-            <div className="w-5/12">
-              <div>
-                <Image
-                  src={`${process.env.API_IMAGE_URL}w780/${moviedata?.poster_path}`}
-                  width={640}
-                  height={940}
-                  alt="s"
-                  className="rounded-lg shadow-2xl"
-                />
+          <div className="xl:px-20">
+            <div className="flex justify-between">
+              <div className="w-4/12">
+                <div>
+                  <Image
+                    src={`${process.env.API_IMAGE_URL}w780/${moviedata?.poster_path}`}
+                    width={640}
+                    height={940}
+                    alt={!!moviedata?.title ? moviedata?.title : moviedata?.name}
+                    className="rounded-lg shadow-2xl"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="w-6/12">
-              <div>
-                <MovieDetailData data={moviedata} className="mb-5 lg:mb-8" />
-                <RelatedMovie data={relatedmovie?.results} />
+              <div className="w-7/12">
+                <div>
+                  <MovieDetailData data={moviedata} className="mb-5 lg:mb-8" />
+                  <RelatedMovie data={relatedmovie?.results} />
+                </div>
               </div>
             </div>
           </div>

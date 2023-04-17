@@ -35,7 +35,7 @@ const Header = () => {
           <div className="flex gap-5 xl:gap-10 shrink-0 items-center">
             {router?.pathname === "/movie/[id]" && (
               <div className="shrink-0">
-                <Link href="/movie" className="text-white text-3xl">
+                <Link href="/search?query=iron+man" className="text-white text-3xl">
                   <FiSearch />
                 </Link>
               </div>
