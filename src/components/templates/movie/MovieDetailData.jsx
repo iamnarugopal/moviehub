@@ -25,17 +25,17 @@ const MovieDetailData = ({ data, className }) => {
 
         <div>
           <Tab.Group>
-            <Tab.List className="mb-5 border-b border-slate-700 border-solid flex gap-10">
-              <Tab className="text-xl uppercase border-b-2 pb-3 tracking-wider  font-medium ui-not-selected:border-transparent ui-not-selected:text-slate-500  ui-selected:text-white ui-selected:border-b-yellow-500 ui-selected:font-semibold">
+            <Tab.List className="mb-5 border-b border-slate-700 border-solid gap-5 lg:gap-10 flex overflow-auto whitespace-nowrap">
+              <Tab className="inline-block text-md md:text-xl uppercase border-b-2 pb-3 tracking-wider  font-medium ui-not-selected:border-transparent ui-not-selected:text-slate-500  ui-selected:text-white ui-selected:border-b-yellow-500 ui-selected:font-semibold">
                 Overview
               </Tab>
-              <Tab className="text-xl uppercase border-b-2 pb-3 tracking-wider  font-medium ui-not-selected:border-transparent ui-not-selected:text-slate-500  ui-selected:text-white ui-selected:border-b-yellow-500 ui-selected:font-semibold">
+              <Tab className="inline-block text-md md:text-xl uppercase border-b-2 pb-3 tracking-wider  font-medium ui-not-selected:border-transparent ui-not-selected:text-slate-500  ui-selected:text-white ui-selected:border-b-yellow-500 ui-selected:font-semibold">
                 Trailers & more
               </Tab>
-              <Tab className="text-xl uppercase border-b-2 pb-3 tracking-wider  font-medium ui-not-selected:border-transparent ui-not-selected:text-slate-500  ui-selected:text-white ui-selected:border-b-yellow-500 ui-selected:font-semibold">
+              <Tab className="inline-block text-md md:text-xl uppercase border-b-2 pb-3 tracking-wider  font-medium ui-not-selected:border-transparent ui-not-selected:text-slate-500  ui-selected:text-white ui-selected:border-b-yellow-500 ui-selected:font-semibold">
                 More like this
               </Tab>
-              <Tab className="text-xl uppercase border-b-2 pb-3 tracking-wider  font-medium ui-not-selected:border-transparent ui-not-selected:text-slate-500  ui-selected:text-white ui-selected:border-b-yellow-500 ui-selected:font-semibold">
+              <Tab className="inline-block text-md md:text-xl uppercase border-b-2 pb-3 tracking-wider  font-medium ui-not-selected:border-transparent ui-not-selected:text-slate-500  ui-selected:text-white ui-selected:border-b-yellow-500 ui-selected:font-semibold">
                 Details
               </Tab>
             </Tab.List>

@@ -6,7 +6,7 @@ import RelatedMovieCard from "./RelatedMovieCard";
 
 const RelatedMovie = ({ data }) => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
@@ -19,15 +19,23 @@ const RelatedMovie = ({ data }) => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 1200,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 2,
+          arrows:false,
+        },
+      },
+      {
+        breakpoint: 400,
         settings: {
           slidesToShow: 1,
+          arrows:false,
         },
       },
     ],

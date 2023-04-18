@@ -10,7 +10,11 @@ const RelatedMovieCard = ({ data }) => {
         <Link href={getmovieurl(data)}>
           <div className="relative" style={{ height: 180 }}>
             <Image
-              src={`${process.env.API_IMAGE_URL}original/${data?.backdrop_path}`}
+              src={`${
+                !!data?.backdrop_path
+                  ? `${process.env.API_IMAGE_URL}w300/${data?.backdrop_path}`
+                  : "https://dummyimage.com/246x180/fff/aaa"
+              }`}
               fill
               alt={!!data?.title ? data?.title : data?.name}
               className="rounded-lg shadow-2xl object-cover"
