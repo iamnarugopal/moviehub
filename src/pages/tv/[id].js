@@ -6,6 +6,7 @@ import Image from "next/image";
 import MovieDetailData from "@/components/templates/movie/MovieDetailData";
 import RelatedMovie from "@/components/templates/movie/RelatedMovie";
 import styles from "./moviedetail.module.scss";
+import MovieTrailer from "@/components/templates/movie/MovieTrailer";
 
 export async function getServerSideProps(context) {
   const mid = context.query.id.split("-")[0];
@@ -16,7 +17,7 @@ export async function getServerSideProps(context) {
     `tv/${mid}/similar?api_key=${process.env.API_KEY}&language=en-US&page=1`
   );
 
-  const { data: videos } = await Api(
+  const { data: tvvideos } = await Api(
     `tv/${mid}/videos?api_key=${process.env.API_KEY}&language=en-US`
   );
 
@@ -24,12 +25,12 @@ export async function getServerSideProps(context) {
     props: {
       data: data,
       related: related,
-      videos: videos,
+      videos: tvvideos,
     }, // will be passed to the page component as props
   };
 }
 
-const MovieDetail = ({ data, related, videos }) => {
+const TvShowDetail = ({ data, related, videos }) => {
   // useEffect(() => {
   //   console.log(videos);
   // }, [videos]);
@@ -55,9 +56,7 @@ const MovieDetail = ({ data, related, videos }) => {
                     src={`${process.env.API_IMAGE_URL}w780/${data?.poster_path}`}
                     width={640}
                     height={940}
-                    alt={
-                      !!data?.title ? data?.title : data?.name
-                    }
+                    alt={!!data?.title ? data?.title : data?.name}
                     className="rounded-lg shadow-2xl"
                   />
                 </div>
@@ -66,25 +65,35 @@ const MovieDetail = ({ data, related, videos }) => {
                     src={`${process.env.API_IMAGE_URL}w780/${data?.backdrop_path}`}
                     width={736}
                     height={360}
-                    alt={
-                      !!data?.title ? data?.title : data?.name
-                    }
+                    alt={!!data?.title ? data?.title : data?.name}
                     className="rounded-lg shadow-2xl"
                   />
                 </div>
               </div>
               <div className="lg:w-7/12">
                 <div>
-                  <MovieDetailData data={data} videos={videos?.results} className="mb-5 lg:mb-8" />
-                  <RelatedMovie data={related?.results} />
+                  <MovieDetailData
+                    data={data}
+                    videos={videos?.results}
+                    className="mb-5 lg:mb-8"
+                  />
+                   <MovieTrailer data={videos?.results} />
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+      <section className={`pb-5 lg:pb-8 xl:pb-20`}>
+        <div className="container mx-auto">
+          <div className="mb-3 xl:mb-10 text-center">
+            <h3 className="text-white text-2xl lg:text-3xl">Related Tv Shows</h3>
+          </div>
+          <RelatedMovie data={related?.results} />
+        </div>
+      </section>
     </>
   );
 };
 
-export default MovieDetail;
+export default TvShowDetail;

@@ -47,4 +47,19 @@ button:focus-within {
       transform: rotate(135deg);
     }
   }
+  .slick-track {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .slick-dots{
+    position: static;
+  }
+  .slick-dots li button:before {
+    color: #ddd;
+  }
+
+  .slick-dots li.slick-active button:before {
+    color: #fff;
+  }
 }
