@@ -2,7 +2,8 @@ import React from "react";
 import dayjs from "dayjs";
 import { Tab } from "@headlessui/react";
 
-const MovieDetailData = ({ data, className }) => {
+const MovieDetailData = ({ data, className, videos }) => {
+  console.log(videos);
   return (
     <>
       <div className={className}>
@@ -15,9 +16,10 @@ const MovieDetailData = ({ data, className }) => {
               <span className="me-3">
                 {dayjs(data?.release_date, "YYYY-MM-DD").format("YYYY")}
               </span>
-              <span className="me-3">{`${Math.floor(data?.runtime / 60)}h ${
-                data?.runtime % 60
-              }min`}</span>
+              <span className="me-3">Seasons : {data?.number_of_seasons}</span>
+              <span className="me-3">
+                Episodes : {data?.number_of_episodes}
+              </span>
             </div>
           </div>
           <div className="shrink-0"></div>
@@ -49,20 +51,42 @@ const MovieDetailData = ({ data, className }) => {
                     <table className="text-white text-sm font-medium w-full">
                       <tbody>
                         <tr>
-                          <td className="text-slate-500 w-1/5 py-2">
-                            Starring
-                          </td>
-                          <td>Scarlett</td>
-                        </tr>
-                        <tr>
-                          <td className="text-slate-500 w-1/5 py-2">
-                            Created by
-                          </td>
-                          <td>Scarlett</td>
-                        </tr>
-                        <tr>
                           <td className="text-slate-500 w-1/5 py-2">Genre</td>
                           <td>{data?.genres?.map((a) => a.name).join(", ")}</td>
+                        </tr>
+                        <tr>
+                          <td className="text-slate-500 w-1/5 py-2">
+                            Created By
+                          </td>
+                          <td>
+                            {data?.created_by?.map((a) => a.name).join(", ")}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="text-slate-500 w-1/5 py-2">
+                            Languages
+                          </td>
+                          <td>{data?.languages?.join(", ")}</td>
+                        </tr>
+                        <tr>
+                          <td className="text-slate-500 w-1/5 py-2">
+                            Production Companies
+                          </td>
+                          <td>
+                            {data?.production_companies
+                              ?.map((a) => a.name)
+                              ?.join(", ")}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td className="text-slate-500 w-1/5 py-2">
+                            Production Ccountries
+                          </td>
+                          <td>
+                            {data?.production_countries
+                              ?.map((a) => a.name)
+                              ?.join(", ")}
+                          </td>
                         </tr>
                       </tbody>
                     </table>

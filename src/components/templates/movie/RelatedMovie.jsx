@@ -7,7 +7,7 @@ import RelatedMovieCard from "./RelatedMovieCard";
 const RelatedMovie = ({ data }) => {
   const settings = {
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,

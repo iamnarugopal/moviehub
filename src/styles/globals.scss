@@ -1,10 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import 'component';
+@import "component";
 
-*{
-  &:focus-visible{
+* {
+  &:focus-visible {
     outline: none;
   }
 }
@@ -18,6 +18,33 @@ body {
   background-color: #000;
 }
 
-button:focus-within{
-    outline: none;
+button:focus-within {
+  outline: none;
+}
+.slick-slider {
+  .slick-prev,
+  .slick-next {
+    width: auto;
+    height: auto;
+    &:before {
+      content: "";
+      display: block;
+      width: 30px;
+      height: 30px;
+      border: 2px solid #fff;
+      border-bottom: none;
+      border-right: none;
+    }
+  }
+
+  .slick-prev {
+    &:before {
+      transform: rotate(-45deg);
+    }
+  }
+  .slick-next {
+    &:before {
+      transform: rotate(135deg);
+    }
+  }
 }

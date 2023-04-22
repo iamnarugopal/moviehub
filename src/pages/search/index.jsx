@@ -10,15 +10,19 @@ export async function getServerSideProps(context) {
   const { data: movielist } = await Api(
     `search/movie?api_key=${process.env.API_KEY}&language=en-US&query=${query}&page=1&include_adult=true`
   );
+  const { data: tvlist } = await Api(
+    `search/tv?api_key=${process.env.API_KEY}&language=en-US&query=${query}&page=1&include_adult=true`
+  );
+  // console.log(tvlist);
   return {
     props: {
-      movielist: movielist.results,
+      movielist: [...movielist.results, ...tvlist.results],
     }, // will be passed to the page component as props
   };
 }
 
 const Search = ({ movielist }) => {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <>
       <section className="py-5 bg-zinc-900">
@@ -51,7 +55,9 @@ const Search = ({ movielist }) => {
                   />
                 </div>
                 <div className="text-white">
-                  <h5 className="mb-4 text-5xl">Search &#34;{router?.query?.query}&#34;</h5>
+                  <h5 className="mb-4 text-5xl">
+                    Search &#34;{router?.query?.query}&#34;
+                  </h5>
                   <p className="text-xl">
                     There are no movies that matched your query.
                   </p>
