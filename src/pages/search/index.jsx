@@ -8,10 +8,10 @@ import React from "react";
 export async function getServerSideProps(context) {
   const query = context.query.query;
   const { data: movielist } = await Api(
-    `search/movie?api_key=${process.env.API_KEY}&language=en-US&query=${query}&page=1&include_adult=true`
+    `search/movie?api_key=${process.env.API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
   );
   const { data: tvlist } = await Api(
-    `search/tv?api_key=${process.env.API_KEY}&language=en-US&query=${query}&page=1&include_adult=true`
+    `search/tv?api_key=${process.env.API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
   );
   // console.log(tvlist);
   return {

@@ -19,10 +19,10 @@ export default function Home({ trendingmovie, trendingshow }) {
 
 export async function getServerSideProps(context) {
   const { data: trendingmovie } = await Api(
-    `trending/movie/day?api_key=${process.env.API_KEY}`
+    `trending/movie/day?api_key=${process.env.API_KEY}&include_adult=false`
   );
   const { data: trendingshow } = await Api(
-    `trending/tv/day?api_key=${process.env.API_KEY}`
+    `trending/tv/day?api_key=${process.env.API_KEY}&include_adult=false`
   );
   return {
     props: {
