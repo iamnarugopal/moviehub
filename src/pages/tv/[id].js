@@ -52,7 +52,7 @@ const TvShowDetail = ({ data, related, videos }) => {
             <div className="lg:flex justify-between">
               <div className="lg:w-4/12">
                 <div className="hidden lg:block">
-                  <Image
+                  <img
                     src={`${process.env.API_IMAGE_URL}w780/${data?.poster_path}`}
                     width={640}
                     height={940}
@@ -61,7 +61,7 @@ const TvShowDetail = ({ data, related, videos }) => {
                   />
                 </div>
                 <div className="lg:hidden mb-4">
-                  <Image
+                  <img
                     src={`${process.env.API_IMAGE_URL}w780/${data?.backdrop_path}`}
                     width={736}
                     height={360}

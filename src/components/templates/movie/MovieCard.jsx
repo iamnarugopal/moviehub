@@ -1,6 +1,5 @@
 import { getmovieurl } from "@/utils/common";
 import dayjs from "dayjs";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaStar } from "react-icons/fa";
@@ -13,7 +12,7 @@ const MovieCard = ({ data }) => {
         className="h-full block bg-gray-950  hover:bg-gray-800 transition-colors"
       >
         <div className="relative">
-          <Image
+          <img
             src={`${
               !!data?.poster_path
                 ? `${process.env.API_IMAGE_URL}w342/${data?.poster_path}`
