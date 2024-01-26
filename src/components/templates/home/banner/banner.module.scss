@@ -3,6 +3,9 @@
   background-image: url("/images/banner.jpg");
   position: relative;
   padding-top: 80px;
+  background-size: cover;
+  background-position: center;
+
   &:before {
     content: "";
     display: block;
